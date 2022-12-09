@@ -76,7 +76,7 @@ export default {
     };
   },
   beforeMount() {
-    let apiURL = "http://localhost:3000/api/users";
+    let apiURL = "https://keyence-back-end.onrender.com/api/users";
     axios
       .get<IUser[]>(apiURL, {
         headers: {
@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     deleteUser(id: string) {
-      let apiURL = `http://localhost:3000/api/users/${id}`;
+      let apiURL = `https://keyence-back-end.onrender.com/api/users/${id}`;
       let indexOfArrayItem = this.Users.findIndex((i) => i._id === id);
       if (window.confirm("Do you really want to delete?")) {
         axios
@@ -115,7 +115,7 @@ export default {
       fileInputElement.onchange = () => {
         let file = fileInputElement.files![0];
         let reader = new FileReader();
-        const apiURL = "http://localhost:3000/api/users/file";
+        const apiURL = "https://keyence-back-end.onrender.com/api/users/file";
         reader.readAsDataURL(file);
 
         reader.onloadend = () => {
@@ -141,7 +141,7 @@ export default {
       };
     },
     exportCsv() {
-      let apiURL = "http://localhost:3000/api/csv/";
+      let apiURL = "https://keyence-back-end.onrender.com/api/csv/";
       axios({
         url: apiURL,
         method: "GET",

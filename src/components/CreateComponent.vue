@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center pt-5">
+  <div class="row justify-content-center pt-5 width-fix">
     <div class="col-md-6">
       <h3 class="text-center">Create User</h3>
       <form @submit.prevent="handleSubmitForm">
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     handleSubmitForm() {
-      const apiURL = "http://localhost:3000/api/users";
+      const apiURL = "https://keyence-back-end.onrender.com/api/users";
       axios
         .post(apiURL, this.user, {
           headers: {

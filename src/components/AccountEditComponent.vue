@@ -51,7 +51,7 @@ export default {
     };
   },
   created() {
-    const apiURL = "http://localhost:3000/api/auth/account";
+    const apiURL = "https://keyence-back-end.onrender.com/api/auth/account";
     axios
       .get(apiURL, {
         headers: {
@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     handleUpdateForm() {
-      const apiURL = "http://localhost:3000/api/auth/" + this.$route.params.id;
+      const apiURL = "https://keyence-back-end.onrender.com/api/auth/" + this.$route.params.id;
       axios
         .put(apiURL, this.account, {
           headers: {

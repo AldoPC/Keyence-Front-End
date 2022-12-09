@@ -16,7 +16,7 @@ export default createStore({
   },
   actions: {
     async login({ commit }, account) {
-      const apiURL = "http://localhost:3000/api/auth/signin";
+      const apiURL = "https://keyence-back-end.onrender.com/api/auth/signin";
       axios
         .post(apiURL, account)
         .then((response) => {
@@ -30,7 +30,7 @@ export default createStore({
         });
     },
     async register({ commit }, account) {
-      const apiURL = "http://localhost:3000/api/auth/signup";
+      const apiURL = "https://keyence-back-end.onrender.com/api/auth/signup";
       axios
         .post(apiURL, account)
         .then((response) => {

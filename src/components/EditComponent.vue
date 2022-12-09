@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center pt-5">
+  <div class="row justify-content-center pt-5 width-fix">
     <div class="col-md-6">
       <h3 class="text-center">Edit User Entry</h3>
       <form @submit.prevent="handleUpdateForm">
@@ -84,7 +84,7 @@ export default {
     };
   },
   created() {
-    const apiURL = "http://localhost:3000/api/users/" + this.$route.params.id;
+    const apiURL = "https://keyence-back-end.onrender.com/api/users/" + this.$route.params.id;
     axios
       .get(apiURL, {
         headers: {
@@ -100,7 +100,7 @@ export default {
   },
   methods: {
     handleUpdateForm() {
-      const apiURL = "http://localhost:3000/api/users/" + this.$route.params.id;
+      const apiURL = "https://keyence-back-end.onrender.com/api/users/" + this.$route.params.id;
       axios
         .put(apiURL, this.user, {
           headers: {
