@@ -98,7 +98,7 @@ export default {
         axios
           .delete(apiURL, {
             headers: {
-              "auth-token": this.token,
+              "auth-token": localStorage.getItem("token"),
             },
           })
           .then(() => {
@@ -126,7 +126,7 @@ export default {
               { fileData: base64String },
               {
                 headers: {
-                  "auth-token": this.token,
+                  "auth-token": localStorage.getItem("token"),
                 },
               }
             )
@@ -146,7 +146,7 @@ export default {
         method: "GET",
         responseType: "blob",
         headers: {
-          "auth-token": this.token,
+          "auth-token": localStorage.getItem("token"),
         },
       }).then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));

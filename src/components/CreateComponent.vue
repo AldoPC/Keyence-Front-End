@@ -89,7 +89,7 @@ export default {
       axios
         .post(apiURL, this.user, {
           headers: {
-            "auth-token": this.token,
+            "auth-token": localStorage.getItem("token"),
           },
         })
         .then(() => {

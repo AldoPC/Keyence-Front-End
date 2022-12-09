@@ -88,7 +88,7 @@ export default {
     axios
       .get(apiURL, {
         headers: {
-          "auth-token": this.token,
+          "auth-token": localStorage.getItem("token"),
         },
       })
       .then((response) => {
@@ -104,7 +104,7 @@ export default {
       axios
         .put(apiURL, this.user, {
           headers: {
-            "auth-token": this.token,
+            "auth-token": localStorage.getItem("token"),
           },
         })
         .then(() => {

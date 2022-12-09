@@ -55,7 +55,7 @@ export default {
     axios
       .get(apiURL, {
         headers: {
-          "auth-token": this.token,
+          "auth-token": localStorage.getItem("token"),
         },
       })
       .then((response) => {
@@ -71,7 +71,7 @@ export default {
       axios
         .put(apiURL, this.account, {
           headers: {
-            "auth-token": this.token,
+            "auth-token": localStorage.getItem("token"),
           },
         })
         .then(() => {
