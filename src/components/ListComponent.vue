@@ -120,7 +120,6 @@ export default {
 
         reader.onloadend = () => {
           const base64String = reader.result as string;
-          console.log(base64String);
           axios
             .post(
               apiURL,
