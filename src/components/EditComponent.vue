@@ -75,7 +75,8 @@ import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState({
-      token: (state: any) => state.token}),
+      token: (state: any) => state.token,
+    }),
   },
   data() {
     return {
@@ -87,7 +88,7 @@ export default {
     axios
       .get(apiURL, {
         headers: {
-          'auth-token': this.token,
+          "auth-token": this.token,
         },
       })
       .then((response) => {
@@ -99,12 +100,11 @@ export default {
   },
   methods: {
     handleUpdateForm() {
-      const apiURL =
-        "http://localhost:3000/api/users/" + this.$route.params.id;
+      const apiURL = "http://localhost:3000/api/users/" + this.$route.params.id;
       axios
         .put(apiURL, this.user, {
           headers: {
-            'auth-token': this.token,
+            "auth-token": this.token,
           },
         })
         .then(() => {

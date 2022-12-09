@@ -3,9 +3,10 @@ import CreateComponent from "../components/CreateComponent.vue";
 import ListComponent from "../components/ListComponent.vue";
 import EditComponent from "../components/EditComponent.vue";
 import AccountComponent from "../components/AccountComponent.vue";
-import Home from "../Home.vue";
-import Login from "../components/Login.vue";
-import Register from "../components/Register.vue";
+import AccountEditComponent from "../components/AccountEditComponent.vue";
+import Home from "../HomeComponent.vue";
+import Login from "../components/LoginComponent.vue";
+import Register from "../components/RegisterComponent.vue";
 import store from "../store";
 const routes = [
   {
@@ -45,6 +46,12 @@ const routes = [
     path: "/account",
     name: "account",
     component: AccountComponent,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: "/account/:id",
+    name: "accountEdit",
+    component: AccountEditComponent,
     meta: { requiresAuth: true },
   },
 ];

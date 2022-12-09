@@ -23,7 +23,7 @@ export default createStore({
           const token = response.data;
           commit("setToken", token);
           localStorage.setItem("token", token.data.token);
-          router.push("/view");
+          router.push("/");
         })
         .catch((error) => {
           console.log(error);
@@ -37,19 +37,20 @@ export default createStore({
           const token = response.data;
           commit("setToken", token);
           localStorage.setItem("token", token.data.token);
+          router.push("/");
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    obtenerToken({ commit }) {
+    obtainToken({ commit }) {
       if (localStorage.getItem("token")) {
         commit("setToken", localStorage.getItem("token"));
       } else {
         commit("setToken", null);
       }
     },
-    cerrarSesion({ commit }) {
+    logout({ commit }) {
       commit("setToken", null);
       localStorage.removeItem("token");
       router.push("/login");

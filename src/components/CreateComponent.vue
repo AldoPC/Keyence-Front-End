@@ -75,7 +75,8 @@ import type IUser from "../interface/IUser";
 export default {
   computed: {
     ...mapState({
-      token: (state: any) => state.token}),
+      token: (state: any) => state.token,
+    }),
   },
   data() {
     return {
@@ -88,7 +89,7 @@ export default {
       axios
         .post(apiURL, this.user, {
           headers: {
-            'auth-token': this.token,
+            "auth-token": this.token,
           },
         })
         .then(() => {

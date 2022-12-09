@@ -7,3 +7,7 @@
 .table-head{
   position: sticky; top: 0
 }
+
+.button-width{
+  width: 100px;
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="justify-content-center container-fluid">
-    <h1>User's Entries</h1>
+    <h1>User Entries</h1>
     <div class="row">
       <div class="col-md-12">
         <div
@@ -67,7 +67,8 @@ import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState({
-      token: (state: any) => state.token}),
+      token: (state: any) => state.token,
+    }),
   },
   data() {
     return {
@@ -75,12 +76,11 @@ export default {
     };
   },
   beforeMount() {
-    console.log(localStorage.getItem("token"));
     let apiURL = "http://localhost:3000/api/users";
     axios
       .get<IUser[]>(apiURL, {
         headers: {
-          'auth-token': localStorage.getItem("token"),
+          "auth-token": localStorage.getItem("token"),
         },
       })
       .then((res) => {
@@ -98,7 +98,7 @@ export default {
         axios
           .delete(apiURL, {
             headers: {
-              'auth-token': this.token,
+              "auth-token": this.token,
             },
           })
           .then(() => {
@@ -122,11 +122,16 @@ export default {
           const base64String = reader.result as string;
           console.log(base64String);
           axios
-            .post(apiURL, { fileData: base64String }, {
-              headers: {
-                'auth-token': this.token,
-              }, })
-            .then((res) => {
+            .post(
+              apiURL,
+              { fileData: base64String },
+              {
+                headers: {
+                  "auth-token": this.token,
+                },
+              }
+            )
+            .then(() => {
               this.$router.go(0);
             })
             .catch((error) => {
@@ -135,25 +140,24 @@ export default {
         };
       };
     },
-    exportCsv(){
+    exportCsv() {
       let apiURL = "http://localhost:3000/api/csv/";
-    axios({
-      url: apiURL,
-      method: 'GET',
-      responseType: 'blob',
-      headers: {
-        'auth-token': this.token,
-      },
-    }).then((response) => {
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'users.csv');
-      document.body.appendChild(link);
-      link.click();
-    })
-
-    }
+      axios({
+        url: apiURL,
+        method: "GET",
+        responseType: "blob",
+        headers: {
+          "auth-token": this.token,
+        },
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "users.csv");
+        document.body.appendChild(link);
+        link.click();
+      });
+    },
   },
 };
 </script>

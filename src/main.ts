@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import Home from "./Home.vue";
+import Home from "./HomeComponent.vue";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/styles.css";
 import "bootstrap";
