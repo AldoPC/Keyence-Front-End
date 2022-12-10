@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center my-5 width-fix">
       <div class="col-md-6">
         <h3 class="text-center">Register</h3>
         <form @submit.prevent="register(account)">
